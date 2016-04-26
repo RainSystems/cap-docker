@@ -4,4 +4,6 @@ RUN gem install highline
 RUN mkdir /app
 VOLUME /app
 WORKDIR /app
-ENTRYPOINT ["cap"]
+COPY cap-wrap.sh /cap-wrap.sh
+RUN chmod +x /cap-wrap.sh
+ENTRYPOINT ["/cap-wrap.sh"]
